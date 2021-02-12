@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
@@ -15,6 +17,10 @@ app.use(cors_1.default());
 app.use(body_parser_1.default.json({ limit: "30mb" }));
 app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.use("/posts", posts_js_1.default);
+
+app.get("/", (req, res) => {
+  res.send("Hellow World");
+});
 app.listen(app.get("port"), () => {
-    console.log("server is listening at " + app.get("port"));
+  console.log("server is listening at " + app.get("port"));
 });
