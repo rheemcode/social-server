@@ -22,5 +22,5 @@ app.get("/", (req, res) => {
   res.send("Hellow World");
 });
 app.listen(PORT, () => {
-  console.log("server is listening at " + PORT);
+  console.log("server is listening at " + app.get("port"));
 });
