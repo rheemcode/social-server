@@ -12,7 +12,7 @@ const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const app = express_1.default();
 dotenv_1.default.config();
-app.set("port", process.env.PORT || 5000);
+const PORT = process.env.PORT || 5000;
 app.use(cors_1.default());
 app.use(body_parser_1.default.json({ limit: "30mb" }));
 app.use(body_parser_1.default.urlencoded({ extended: true }));
@@ -21,6 +21,6 @@ app.use("/posts", posts_js_1.default);
 app.get("/", (req, res) => {
   res.send("Hellow World");
 });
-app.listen(app.get("port"), () => {
-  console.log("server is listening at " + app.get("port"));
+app.listen(PORT, () => {
+  console.log("server is listening at " + PORT);
 });
